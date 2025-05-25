@@ -69,23 +69,20 @@
 
   <script>
     async function fetchProducts() {
-      const category = document.getElementById('category').value;
+         const category = document.getElementById('category').value;
       const minPrice = document.getElementById('minPrice').value;
-      const maxPrice = document.getElementById('maxPrice').value;
-      const productList = document.getElementById('productList');
-      const status = document.getElementById('status');
-
-      // Clear previous results and status
+       const maxPrice = document.getElementById('maxPrice').value;
+        const productList = document.getElementById('productList');
+        const status = document.getElementById('status');
+       
       productList.innerHTML = '';
       status.textContent = '';
-      status.className = 'loading';
-      status.textContent = 'Loading...';
-
-      // Construct query parameters
-      const params = new URLSearchParams();
-      if (category) params.append('category', category);
+       status.className = 'loading';
+       status.textContent = 'Loading...';
+         const params = new URLSearchParams();
+           if (category) params.append('category', category);
       if (minPrice) params.append('min_price', minPrice);
-      if (maxPrice) params.append('max_price', maxPrice);
+         if (maxPrice) params.append('max_price', maxPrice);
       params.append('sort', 'asc');
 
       const apiUrl = `https://mockapi.io/products?${params.toString()}`;
@@ -97,7 +94,7 @@
         }
         const products = await response.json();
 
-        // Display products
+    
         if (products.length === 0) {
           status.textContent = 'No products found.';
           status.className = '';
